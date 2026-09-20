@@ -274,9 +274,7 @@ export default function UeberMichPage() {
                 </div>
                 <div className="flex items-center gap-3 rounded-2xl bg-white/[0.06] border border-white/[0.08] px-4 py-3.5 hover:bg-white/[0.1] transition-colors duration-200">
                   <Award size={18} className="text-[#f2a93b] shrink-0" />
-                  <span data-edit-id="about-cred-14" className="text-sm font-semibold text-white/85">
-                    Teilnahme IMA Massage Meisterschaft Kopenhagen 2026
-                  </span>
+                  <span data-edit-id="about-cred-14" className="text-sm font-semibold text-white/85">{"Medizinischer Masseur"}</span>
                 </div>
             </div>
 
