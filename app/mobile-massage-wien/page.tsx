@@ -186,7 +186,7 @@ export default async function MobileMassageWien() {
                   <p
                     data-edit-id="mm-hero-subtitle"
                     className={`mt-6 max-w-xl text-[17px] leading-[1.6] ${T_BODY} sm:mt-7 sm:text-lg sm:leading-[1.65]`}
-                  >{"Ich komme zu Ihnen – mit Liege, Ölen und Handtüchern. Sie kümmern sich um nichts außer Ihrer Entspannung. Therapeutische Massage auf Praxisniveau, in Ihren eigenen vier Wänden."}</p>
+                  >{"Ich komme mit Liege, Ölen und Handtüchern direkt zu Ihnen. Sie brauchen nichts vorzubereiten – ich bringe alles für eine professionelle Behandlung bei Ihnen zuhause mit."}</p>
 
                   {/* Preis-Lockup */}
                   <div
