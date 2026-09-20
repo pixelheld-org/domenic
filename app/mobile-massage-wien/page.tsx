@@ -560,9 +560,7 @@ export default async function MobileMassageWien() {
                       </li>
                       <li className="grid grid-cols-[2.5rem_1fr] gap-x-4 py-4">
                         <Hairline className="mt-3" />
-                        <span data-edit-id="mm-vip-3" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>
-                          Termine auch spätabends und am Wochenende
-                        </span>
+                        <span data-edit-id="mm-vip-3" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>{"Termine nach Vereinbarung – auch am Wochenende möglich"}</span>
                       </li>
                       <li className="grid grid-cols-[2.5rem_1fr] gap-x-4 py-4">
                         <Hairline className="mt-3" />
