@@ -142,10 +142,30 @@ export function EditKit() {
     });
     function editableText(el: Element): el is HTMLElement {
       const id = el.getAttribute("data-edit-id");
-      return el instanceof HTMLElement && /^(H[1-6]|P|BUTTON|A|SPAN|LABEL|LI)$/.test(el.tagName) &&
+      return el instanceof HTMLElement && /^(H[1-6]|P|BUTTON|A|SPAN|LABEL|LI|DT|DD|BLOCKQUOTE|TD|TH|FIGCAPTION|STRONG|EM|SMALL)$/.test(el.tagName) &&
         !!id && /^[a-zA-Z0-9_.:-]{1,120}$/.test(id) && el.children.length === 0 &&
         !el.isContentEditable && (el.textContent?.length ?? 0) <= 5000 &&
         Array.from(document.querySelectorAll("[data-edit-id]")).filter(node => node.getAttribute("data-edit-id") === id).length === 1;
+    }
+    // Wechsel ohne Enter: Klickt der Kunde während einer Bearbeitung woandershin,
+    // wird der aktuelle Text gespeichert. `pendingNext` merkt sich, was danach
+    // passieren soll, falls die Bestätigung des Editors noch aussteht.
+    let pendingNext: { element: Element; action: "edit" | "select" } | null = null;
+    // Grund, warum ein Element nur über den Chat (KI) änderbar ist. Der Editor zeigt
+    // dazu einen Hinweis, statt den Doppelklick stumm zu ignorieren.
+    function directTextReason(el: Element): "image" | "mixed" | "other" {
+      if (el.matches("img, picture, svg, video, canvas") || el.closest("svg")) return "image";
+      const hasOwnText = Array.from(el.childNodes).some(node => node.nodeType === Node.TEXT_NODE && (node.textContent ?? "").trim());
+      if (hasOwnText && el.children.length > 0) return "mixed";
+      return "other";
+    }
+    // Der Hinweis gehört dorthin, wo der Kunde gerade hinschaut: ans Element.
+    function flagAiOnly(el: Element) {
+      const reason = directTextReason(el);
+      selectedEl = el;
+      label.textContent = reason === "image" ? "Bild · Änderung im Chat beschreiben" : "Nur über den Chat änderbar";
+      refreshSelection();
+      post("direct-text-unavailable", { reason });
     }
     function restoreEditable() {
       if (!editing) return;
@@ -162,7 +182,8 @@ export function EditKit() {
       refreshSelection();
     }
     function startText(el: Element | null) {
-      if (textLocked || saving || editing || !el || !editableText(el)) return;
+      if (saving || editing || !el || !editableText(el)) return;
+      if (textLocked) { post("text-edit-error", { message: "Bitte warte, bis die laufende Änderung fertig ist. Danach kannst du den Text bearbeiten." }); return; }
       editing = { element: el, previousText: el.textContent ?? "", editId: el.getAttribute("data-edit-id")!, editable: el.getAttribute("contenteditable"), cursor: el.style.cursor };
       el.style.cursor = "text";
       el.setAttribute("contenteditable", "plaintext-only");
@@ -187,12 +208,37 @@ export function EditKit() {
       editing.element.setAttribute("contenteditable", "false");
       post("text-edit-submit", { editId: editing.editId, previousText: editing.previousText, text });
     }
+    /** Speichert (oder verwirft bei unverändertem Text) die laufende Bearbeitung.
+     *  true = Bearbeitung ist sofort beendet, false = wartet auf den Editor oder ist ungültig. */
+    function finishEditing(): boolean {
+      if (!editing) return true;
+      if (!saving) submitText();
+      return !editing;
+    }
+    function runPendingNext() {
+      const next = pendingNext;
+      pendingNext = null;
+      if (!next || !next.element.isConnected || editing) return;
+      if (next.action === "edit") startText(next.element);
+      else selectElement(next.element);
+    }
     function onDoubleClick(event: MouseEvent) {
-      if (mode !== "select" || editing) return;
+      if (mode !== "select") return;
       const el = targetFor(event);
-      if (!el || !editableText(el)) return;
+      if (editing) {
+        if (!el || editing.element.contains(el)) return; // Wort markieren im eigenen Text
+        event.preventDefault();
+        event.stopPropagation();
+        if (!editableText(el)) { if (finishEditing()) flagAiOnly(el); return; }
+        if (finishEditing()) startText(el);
+        else if (saving) pendingNext = { element: el, action: "edit" };
+        return;
+      }
+      if (!el) return;
       event.preventDefault();
       event.stopPropagation();
+      if (!editableText(el)) { flagAiOnly(el); return; }
+      pendingNext = null;
       startText(el);
     }
     function onKeyDown(event: KeyboardEvent) {
@@ -203,6 +249,11 @@ export function EditKit() {
         if (event.key === "Escape") cancelText();
         else if (!event.isComposing) submitText();
       }
+    }
+    // Chrome klappt <details> beim Loslassen der Leertaste um, auch wenn gerade in
+    // der Frage getippt wird.
+    function onKeyUp(event: KeyboardEvent) {
+      if (editing && event.key === " " && editing.element.closest("summary")) event.preventDefault();
     }
     function onPaste(event: ClipboardEvent) {
       if (!editing || saving || !editing.element.contains(event.target as Node)) return;
@@ -258,12 +309,29 @@ export function EditKit() {
           if (editing.element.matches("a, button")) event.preventDefault();
           event.stopPropagation(); return;
         }
-        event.preventDefault(); event.stopPropagation(); return;
+        // Klick außerhalb: aktuellen Text speichern und das angeklickte Element wählen.
+        event.preventDefault(); event.stopPropagation();
+        const outside = targetFor(event);
+        if (finishEditing()) { if (outside) selectElement(outside); }
+        else if (saving && outside && pendingNext?.action !== "edit") pendingNext = { element: outside, action: "select" };
+        return;
       }
       const el = targetFor(event);
       if (!el) return;
       event.preventDefault();
-      event.stopPropagation();
+      // Zugeklappte Akkordeons und Menüs (aria-expanded="false") dürfen ihren eigenen
+      // Klick-Handler behalten, sonst sind die Texte darin nie erreichbar. Nur zum
+      // Öffnen: Ist der Bereich offen, wird der Klick wie sonst abgefangen.
+      if (!el.closest("[aria-expanded='false']")) event.stopPropagation();
+      selectElement(el);
+    }
+
+    function selectElement(el: Element) {
+      // Eingeklappte Bereiche (FAQ): Im Auswahlmodus ist der Klick auf die Frage
+      // unterdrückt, die Antwort wäre sonst nie erreichbar. Nur öffnen, nie schließen,
+      // damit ein Doppelklick auf die Frage nicht auf- und wieder zuklappt.
+      const details = el.closest("summary")?.parentElement;
+      if (details instanceof HTMLDetailsElement && !details.open) details.open = true;
       selectedEl = el;
       const editId = el.getAttribute("data-edit-id");
       label.textContent = editId ?? el.tagName.toLowerCase();
@@ -317,7 +385,9 @@ export function EditKit() {
         if (data.payload?.ok) {
           if (overlayEnabled) writeOverlay({ ...readOverlay(), [editing.editId]: editing.element.textContent ?? "" });
           restoreEditable(); editing = null; post("text-edit-ended");
+          runPendingNext();
         } else {
+          pendingNext = null;
           editing.element.setAttribute("contenteditable", "plaintext-only");
           editing.element.focus();
           post("text-edit-error", { message: data.payload?.message ?? "Text konnte nicht gespeichert werden." });
@@ -352,6 +422,7 @@ export function EditKit() {
     document.addEventListener("input", refreshSelection, true);
     document.addEventListener("dblclick", onDoubleClick, true);
     document.addEventListener("keydown", onKeyDown, true);
+    document.addEventListener("keyup", onKeyUp, true);
     document.addEventListener("paste", onPaste, true);
     window.addEventListener("beforeunload", onBeforeUnload);
     document.addEventListener("mousemove", onMove, true);
@@ -369,6 +440,7 @@ export function EditKit() {
       cancelText();
       document.removeEventListener("input", refreshSelection, true);
       document.removeEventListener("dblclick", onDoubleClick, true);
+      document.removeEventListener("keyup", onKeyUp, true);
       document.removeEventListener("keydown", onKeyDown, true);
       document.removeEventListener("paste", onPaste, true);
       window.removeEventListener("beforeunload", onBeforeUnload);
