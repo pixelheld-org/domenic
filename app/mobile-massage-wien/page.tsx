@@ -209,7 +209,7 @@ export default async function MobileMassageWien() {
                         <span data-edit-id="mm-hero-duration">für 60 oder 90 Minuten</span>
                       </span>
                       <span className={`block text-[14px] ${T_MUTED}`}>
-                        Anfahrt innerhalb Wiens inklusive
+                        inkl. Anfahrt in nahegelegene Innenbezirke
                       </span>
                     </span>
                   </div>
