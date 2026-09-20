@@ -391,7 +391,7 @@ export default async function MobileMassageWien() {
                     </div>
                   </dl>
                   <p className={`mt-3 text-sm ${T_MUTED}`}>
-                    Anfahrt innerhalb Wiens inklusive
+                    inkl. Anfahrt in nahegelegene Innenbezirke
                   </p>
 
                   <h3 className={`mt-10 ${EYEBROW}`}>Im Preis enthalten</h3>
@@ -446,9 +446,7 @@ export default async function MobileMassageWien() {
                             <p data-edit-id="mm-incl-5-title" className={`text-[17px] font-semibold ${T_PRIMARY}`}>
                               Anfahrt, Auf- und Abbau
                             </p>
-                            <p data-edit-id="mm-incl-5-text" className={`mt-1 max-w-prose text-[15px] leading-relaxed ${T_MUTED}`}>
-                              Innerhalb Wiens im Preis enthalten. Für Adressen außerhalb Wiens kann ein Anfahrtsaufschlag dazukommen. Den nenne ich Ihnen immer vorab, bevor der Termin fix ist.
-                            </p>
+                            <p data-edit-id="mm-incl-5-text" className={`mt-1 max-w-prose text-[15px] leading-relaxed ${T_MUTED}`}>{"Anfahrt in nahegelegene Innenbezirke sind inkludiert. Für Adressen außerhalb Wiens kann ein Anfahrtsaufschlag dazukommen. Den nenne ich Ihnen immer vorab, bevor der Termin fix ist."}</p>
                           </div>
                         </li>
                   </ul>
@@ -549,36 +547,30 @@ export default async function MobileMassageWien() {
               <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.95fr] lg:gap-20">
                 <div>
                   <p className={EYEBROW}>Auf Anfrage</p>
-                  <h2 className={`${H2} mt-4`}>Hotel, Suite, Backstage</h2>
+                  <h2 className={`${H2} mt-4`}>Mobile Massage für Hotel & Business</h2>
                   <p
                     className={`mt-5 max-w-xl text-[17px] leading-[1.65] ${T_BODY}`}
                   >
-                    Für Gäste in Wiener Hotels, für Künstlerinnen und Künstler auf Tour und für alle, die einen Termin brauchen: Auf Anfrage behandle ich auch im Hotelzimmer, in der Suite oder backstage – auch spät nach der Show.
+                    Ich biete mobile Behandlungen auch direkt in Wiener Hotels an. Die Liege und alle benötigten Materialien bringe ich mit – Sie brauchen vor Ort nichts vorzubereiten.
                   </p>
                   <ul className="mt-8 divide-y divide-white/10 border-y border-white/10">
                       <li className="grid grid-cols-[2.5rem_1fr] gap-x-4 py-4">
                         <Hairline className="mt-3" />
-                        <span data-edit-id="mm-vip-1" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>
-                          Behandlung im Hotelzimmer, in der Suite oder backstage
-                        </span>
+                        <span data-edit-id="mm-vip-1" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>{"Behandlung direkt im Hotelzimmer"}</span>
                       </li>
                       <li className="grid grid-cols-[2.5rem_1fr] gap-x-4 py-4">
                         <Hairline className="mt-3" />
-                        <span data-edit-id="mm-vip-3" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>
-                          Termine auch spätabends und am Wochenende
-                        </span>
+                        <span data-edit-id="mm-vip-3" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>{"Termine nach Vereinbarung – auch am Wochenende möglich"}</span>
                       </li>
                       <li className="grid grid-cols-[2.5rem_1fr] gap-x-4 py-4">
                         <Hairline className="mt-3" />
-                        <span data-edit-id="mm-vip-4" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>
-                          Auf Wunsch Abrechnung über Rezeption oder Management
-                        </span>
+                        <span data-edit-id="mm-vip-4" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>{"Klare Termin- und Preisabsprache vorab"}</span>
                       </li>
                   </ul>
                   <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
                     <a href={TEL_HREF} className={BTN_GOLD}>
                       <Phone size={16} strokeWidth={2.25} aria-hidden={true} />
-                      Diskret anrufen
+                      Anrufen
                     </a>
                     <a href={MAIL_HREF} className={BTN_GHOST}>
                       <Mail size={16} strokeWidth={2.25} aria-hidden={true} />
