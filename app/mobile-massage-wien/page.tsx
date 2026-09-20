@@ -391,7 +391,7 @@ export default async function MobileMassageWien() {
                     </div>
                   </dl>
                   <p className={`mt-3 text-sm ${T_MUTED}`}>
-                    Anfahrt innerhalb Wiens inklusive
+                    inkl. Anfahrt in nahegelegene Innenbezirke
                   </p>
 
                   <h3 className={`mt-10 ${EYEBROW}`}>Im Preis enthalten</h3>
