@@ -570,7 +570,7 @@ export default async function MobileMassageWien() {
                   <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
                     <a href={TEL_HREF} className={BTN_GOLD}>
                       <Phone size={16} strokeWidth={2.25} aria-hidden={true} />
-                      Diskret anrufen
+                      Anrufen
                     </a>
                     <a href={MAIL_HREF} className={BTN_GHOST}>
                       <Mail size={16} strokeWidth={2.25} aria-hidden={true} />
