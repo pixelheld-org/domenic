@@ -161,7 +161,7 @@ export default async function MobileMassageWien() {
                     className={`flex flex-col gap-y-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3 ${EYEBROW} ${RISE}`}
                     style={rise(0)}
                   >
-                    <span data-edit-id="mm-hero-badge">Hausbesuch in ganz Wien</span>
+                    <span data-edit-id="mm-hero-badge">{"Hausbesuch in Wien"}</span>
                     <span
                       aria-hidden
                       className="hidden h-px w-5 bg-[#f2a93b]/60 sm:block"
