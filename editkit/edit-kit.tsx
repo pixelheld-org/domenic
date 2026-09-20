@@ -99,6 +99,47 @@ export function EditKit() {
     function post(type: string, payload?: unknown) {
       if (portalOrigin) window.parent.postMessage({ source: messageSource, type, payload }, portalOrigin);
     }
+
+    // Text-Overlay: Direkt gespeicherte Texte sind sofort committet, der Vorschau-
+    // Build läuft aber gebündelt im Hintergrund. Bis er fertig ist, liefert der
+    // Server noch den alten Text aus. Das Overlay setzt die gespeicherten Texte
+    // nach Seitenwechsel oder Re-Render wieder ein, damit nie der alte Stand
+    // aufblitzt. Der Editor leert es, sobald der Build den Stand enthält.
+    const overlayKey = "pixelheld-text-overlay";
+    // Nur ein Editor, der das Overlay auch wieder leert, darf es benutzen. Ältere
+    // Editoren (z. B. Produktion, während Staging schon neuer ist) teilen sich
+    // dieselbe Sandbox und würden es sonst für immer stehen lassen.
+    let overlayEnabled = false;
+    function readOverlay(): Record<string, string> {
+      try {
+        const parsed: unknown = JSON.parse(sessionStorage.getItem(overlayKey) ?? "{}");
+        return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed as Record<string, string> : {};
+      } catch { return {}; }
+    }
+    function writeOverlay(next: Record<string, string>) {
+      try {
+        if (Object.keys(next).length === 0) sessionStorage.removeItem(overlayKey);
+        else sessionStorage.setItem(overlayKey, JSON.stringify(next));
+      } catch { /* Speicher gesperrt (z. B. Privatmodus): Overlay ist nur Komfort. */ }
+    }
+    function applyOverlay() {
+      if (!overlayEnabled) return;
+      const overlay = readOverlay();
+      for (const [id, text] of Object.entries(overlay)) {
+        if (typeof text !== "string" || editing?.editId === id) continue;
+        const nodes = Array.from(document.querySelectorAll("[data-edit-id]")).filter(node => node.getAttribute("data-edit-id") === id);
+        if (nodes.length !== 1) continue;
+        const el = nodes[0];
+        // Nur reine Textelemente anfassen und nur schreiben, wenn es wirklich abweicht
+        // (sonst würde der MutationObserver sich selbst auslösen).
+        if (el.children.length === 0 && el.textContent !== text) el.textContent = text;
+      }
+    }
+    let overlayTimer: ReturnType<typeof setTimeout> | null = null;
+    const overlayObserver = new MutationObserver(() => {
+      if (overlayTimer) return;
+      overlayTimer = setTimeout(() => { overlayTimer = null; applyOverlay(); }, 50);
+    });
     function editableText(el: Element): el is HTMLElement {
       const id = el.getAttribute("data-edit-id");
       return el instanceof HTMLElement && /^(H[1-6]|P|BUTTON|A|SPAN|LABEL|LI)$/.test(el.tagName) &&
@@ -256,7 +297,10 @@ export function EditKit() {
         connectedOrigin = event.origin;
         portalOrigin = event.origin;
         messageSource = data.source === "pixelheld-editor" ? "pixelheld-editkit" : "pixelmeister-editkit";
-        window.parent.postMessage({ source: messageSource, type: "capabilities", payload: { navigation: true, directText: true } }, portalOrigin);
+        // Der Legacy-Handshake kommt zuerst und ohne Payload; nur der neue Editor schaltet frei.
+        if (data.payload?.textOverlay === true) { overlayEnabled = true; applyOverlay(); }
+        else if (data.source === "pixelheld-editor") { overlayEnabled = false; writeOverlay({}); }
+        window.parent.postMessage({ source: messageSource, type: "capabilities", payload: { navigation: true, directText: true, textOverlay: true } }, portalOrigin);
         reportLocation();
       } else if (data.type === "get-page-context") {
         reportPageContext(data.payload?.requestId);
@@ -271,12 +315,23 @@ export function EditKit() {
       } else if (data.type === "text-save-result" && editing) {
         saving = false;
         if (data.payload?.ok) {
+          if (overlayEnabled) writeOverlay({ ...readOverlay(), [editing.editId]: editing.element.textContent ?? "" });
           restoreEditable(); editing = null; post("text-edit-ended");
         } else {
           editing.element.setAttribute("contenteditable", "plaintext-only");
           editing.element.focus();
           post("text-edit-error", { message: data.payload?.message ?? "Text konnte nicht gespeichert werden." });
         }
+      } else if (data.type === "clear-text-overlay") {
+        // Der Vorschau-Build enthält jetzt alle gespeicherten Texte.
+        writeOverlay({});
+      } else if (data.type === "restore-text" && typeof data.payload?.editId === "string" && typeof data.payload?.text === "string") {
+        // Eine Textänderung aus der Warteschlange ist gescheitert: alten Text zurücksetzen.
+        const overlay = readOverlay();
+        delete overlay[data.payload.editId];
+        writeOverlay(overlay);
+        const nodes = Array.from(document.querySelectorAll("[data-edit-id]")).filter(node => node.getAttribute("data-edit-id") === data.payload.editId);
+        if (nodes.length === 1 && nodes[0].children.length === 0 && editing?.editId !== data.payload.editId) nodes[0].textContent = data.payload.text;
       } else if (data.type === "set-mode" && ["select", "navigate"].includes(data.payload?.mode)) {
         mode = data.payload.mode;
         selectedEl = null;
@@ -304,6 +359,7 @@ export function EditKit() {
     window.addEventListener("message", onPortalMessage);
     window.addEventListener("scroll", onScrollResize, true);
     window.addEventListener("resize", onScrollResize);
+    overlayObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
 
     // Inhaltsloser Ready-Ping → der Editor antwortet mit "init" (Handshake).
     window.parent.postMessage({ source: messageSource, type: "ready" }, "*");
@@ -321,6 +377,8 @@ export function EditKit() {
       window.removeEventListener("message", onPortalMessage);
       window.removeEventListener("scroll", onScrollResize, true);
       window.removeEventListener("resize", onScrollResize);
+      overlayObserver.disconnect();
+      if (overlayTimer) clearTimeout(overlayTimer);
       hover.remove();
       selectionBox.remove();
       label.remove();
