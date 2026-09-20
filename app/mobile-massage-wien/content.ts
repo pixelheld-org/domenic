@@ -11,8 +11,8 @@ export type PriceTier = { duration: string; amount?: number };
 export const IMAGES = {
   /** Portrait, Hochformat 1400×3035, Gesicht oben (object-position ≈ 50% 22%) */
   portrait: "/images/domenic-portrait.webp",
-  /** Behandlungsraum mit Liege, 2000×2134, Liege unten (object-bottom) */
-  room: "/images/behandlungsraum-liege.webp",
+  /** Mobile Massage vor Ort mit Liege (Domenic Hacker & KC Rebell) */
+  room: "/images/0-heilmasseur-domenic-kc-rebell-wien.webp",
   /** Breakdance-Bühnenfoto 3000×2000, Tänzer mittig (object-position ≈ 50% 55%) */
   stage: "/images/breakdance.jpg",
   /** Behandlung, warmes Licht, 1600×1066 */
