@@ -564,9 +564,7 @@ export default async function MobileMassageWien() {
                       </li>
                       <li className="grid grid-cols-[2.5rem_1fr] gap-x-4 py-4">
                         <Hairline className="mt-3" />
-                        <span data-edit-id="mm-vip-4" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>
-                          Auf Wunsch Abrechnung über Rezeption oder Management
-                        </span>
+                        <span data-edit-id="mm-vip-4" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>{"Klare Termin- und Preisabsprache vorab"}</span>
                       </li>
                   </ul>
                   <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
