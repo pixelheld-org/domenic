@@ -166,7 +166,7 @@ export default async function MobileMassageWien() {
                       aria-hidden
                       className="hidden h-px w-5 bg-[#f2a93b]/60 sm:block"
                     />
-                    <span data-edit-id="mm-hero-service-line">Hotel & VIP-Service auf Anfrage</span>
+                    <span data-edit-id="mm-hero-service-line">{"Hotel & Business auf Anfrage"}</span>
                   </p>
 
                   {/* Headline und Vorspann laufen bewusst ohne mm-rise: Der
