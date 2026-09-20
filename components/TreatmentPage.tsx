@@ -34,7 +34,7 @@ const FAQ_LD = {
 } as const;
 
 export function TreatmentPage({ variant }: { variant: TreatmentVariant }) {
-  const heroSrc = variant === "heilmassage" ? "/images/cms/heilmassage-hero.webp" : "/images/cms/sportmassage-hero.webp";
+  const heroSrc = variant === "heilmassage" ? "/images/cms/heilmassage-hero.webp" : "/images/sportmassage-hero.jpeg";
   const approachSrc = variant === "heilmassage" ? "/images/cms/heilmassage-approach.webp" : "/images/cms/sportmassage-approach.webp";
   const heroAlt = variant === "heilmassage"
     ? "Heilmassage Behandlung in Wien 1080 – Praxis Domenic Hacker"
