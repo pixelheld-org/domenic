@@ -178,7 +178,7 @@ export default async function MobileMassageWien() {
                   >
                     <span data-edit-id="mm-hero-heading-lead" className="block">Mobile Massage –</span>
                     <span className="block text-balance">
-                      <span data-edit-id="mm-hero-heading-rest">{"nachhaltige Entspannung bei Ihnen"}</span>
+                      <span data-edit-id="mm-hero-heading-rest">{"professionelle behandlung bei ihnen"}</span>
                       <span data-edit-id="mm-hero-heading-accent" className="text-[#f2a93b]">zuhause</span>
                     </span>
                   </h1>
