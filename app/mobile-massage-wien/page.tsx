@@ -446,9 +446,7 @@ export default async function MobileMassageWien() {
                             <p data-edit-id="mm-incl-5-title" className={`text-[17px] font-semibold ${T_PRIMARY}`}>
                               Anfahrt, Auf- und Abbau
                             </p>
-                            <p data-edit-id="mm-incl-5-text" className={`mt-1 max-w-prose text-[15px] leading-relaxed ${T_MUTED}`}>
-                              Innerhalb Wiens im Preis enthalten. Für Adressen außerhalb Wiens kann ein Anfahrtsaufschlag dazukommen. Den nenne ich Ihnen immer vorab, bevor der Termin fix ist.
-                            </p>
+                            <p data-edit-id="mm-incl-5-text" className={`mt-1 max-w-prose text-[15px] leading-relaxed ${T_MUTED}`}>{"Anfahrt in nahegelegene Innenbezirke sind inkludiert. Für Adressen außerhalb Wiens kann ein Anfahrtsaufschlag dazukommen. Den nenne ich Ihnen immer vorab, bevor der Termin fix ist."}</p>
                           </div>
                         </li>
                   </ul>
