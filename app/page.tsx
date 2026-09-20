@@ -95,11 +95,11 @@ export default async function Home() {
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/10">
                 <Image
-                  src="/images/behandlungsraum.webp"
+                  src="/images/behandlungsraum_1080.png"
                   alt="Behandlungsraum der Heilmassage-Praxis in Wien 1080 – helle Altbauräume mit professioneller Massageliege"
                   width={800}
                   height={534}
-                  className="w-full h-auto aspect-[3/2] object-cover object-[50%_78%]"
+                  className="w-full h-auto aspect-[3/2] object-cover"
                   quality={85}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
