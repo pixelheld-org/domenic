@@ -161,12 +161,12 @@ export default async function MobileMassageWien() {
                     className={`flex flex-col gap-y-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3 ${EYEBROW} ${RISE}`}
                     style={rise(0)}
                   >
-                    <span data-edit-id="mm-hero-badge">Hausbesuch in ganz Wien</span>
+                    <span data-edit-id="mm-hero-badge">{"Hausbesuch in Wien"}</span>
                     <span
                       aria-hidden
                       className="hidden h-px w-5 bg-[#f2a93b]/60 sm:block"
                     />
-                    <span data-edit-id="mm-hero-service-line">Hotel & VIP-Service auf Anfrage</span>
+                    <span data-edit-id="mm-hero-service-line">{"Hotel & Business auf Anfrage"}</span>
                   </p>
 
                   {/* Headline und Vorspann laufen bewusst ohne mm-rise: Der
@@ -178,7 +178,7 @@ export default async function MobileMassageWien() {
                   >
                     <span data-edit-id="mm-hero-heading-lead" className="block">Mobile Massage –</span>
                     <span className="block text-balance">
-                      <span data-edit-id="mm-hero-heading-rest">nachhaltige Entspannung bei Ihnen </span>
+                      <span data-edit-id="mm-hero-heading-rest">{"professionelle Behandlung bei Ihnen"}</span>
                       <span data-edit-id="mm-hero-heading-accent" className="text-[#f2a93b]">zuhause</span>
                     </span>
                   </h1>
@@ -186,7 +186,7 @@ export default async function MobileMassageWien() {
                   <p
                     data-edit-id="mm-hero-subtitle"
                     className={`mt-6 max-w-xl text-[17px] leading-[1.6] ${T_BODY} sm:mt-7 sm:text-lg sm:leading-[1.65]`}
-                  >{"Ich komme zu Ihnen – mit Liege, Ölen und Handtüchern. Sie kümmern sich um nichts außer Ihrer Entspannung. Therapeutische Massage auf Praxisniveau, in Ihren eigenen vier Wänden."}</p>
+                  >{"Ich komme mit Liege, Ölen und Handtüchern direkt zu Ihnen. Sie brauchen nichts vorzubereiten – ich bringe alles für eine professionelle Behandlung bei Ihnen zuhause mit."}</p>
 
                   {/* Preis-Lockup */}
                   <div
