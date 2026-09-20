@@ -290,7 +290,7 @@ export const mobileMassagePageSchema = defineType({
       type: "text",
       rows: 4,
       initialValue:
-        "Für Gäste in Wiener Hotels, für Künstlerinnen und Künstler auf Tour und für alle, die einen diskreten Termin brauchen: Auf Anfrage behandle ich auch im Hotelzimmer, in der Suite oder backstage – auch spät nach der Show.",
+        "Ich biete mobile Behandlungen auch direkt in Wiener Hotels an. Die Liege und alle benötigten Materialien bringe ich mit – Sie brauchen vor Ort nichts vorzubereiten.",
       group: "vip",
     }),
     defineField({

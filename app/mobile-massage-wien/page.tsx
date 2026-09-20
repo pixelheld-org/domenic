@@ -551,7 +551,7 @@ export default async function MobileMassageWien() {
                   <p
                     className={`mt-5 max-w-xl text-[17px] leading-[1.65] ${T_BODY}`}
                   >
-                    Für Gäste in Wiener Hotels, für Künstlerinnen und Künstler auf Tour und für alle, die einen Termin brauchen: Auf Anfrage behandle ich auch im Hotelzimmer, in der Suite oder backstage – auch spät nach der Show.
+                    Ich biete mobile Behandlungen auch direkt in Wiener Hotels an. Die Liege und alle benötigten Materialien bringe ich mit – Sie brauchen vor Ort nichts vorzubereiten.
                   </p>
                   <ul className="mt-8 divide-y divide-white/10 border-y border-white/10">
                       <li className="grid grid-cols-[2.5rem_1fr] gap-x-4 py-4">
