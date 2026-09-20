@@ -547,7 +547,7 @@ export default async function MobileMassageWien() {
               <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.95fr] lg:gap-20">
                 <div>
                   <p className={EYEBROW}>Auf Anfrage</p>
-                  <h2 className={`${H2} mt-4`}>Hotel, Suite, Backstage</h2>
+                  <h2 className={`${H2} mt-4`}>Mobile Massage für Hotel & Business</h2>
                   <p
                     className={`mt-5 max-w-xl text-[17px] leading-[1.65] ${T_BODY}`}
                   >
