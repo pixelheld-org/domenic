@@ -341,11 +341,11 @@ export default async function MobileMassageWien() {
                     >
                       <Image
                         src={IMAGES.room}
-                        alt="Der Behandlungsraum von Domenic Hacker in der Josefstadt"
+                        alt="Domenic Hacker und KC Rebell bei der mobilen Massage vor Ort"
                         fill
-                        quality={75}
+                        quality={80}
                         sizes="(max-width: 1024px) 100vw, 440px"
-                        className="object-cover object-bottom"
+                        className="object-cover object-center"
                       />
                       <div
                         aria-hidden
@@ -356,7 +356,7 @@ export default async function MobileMassageWien() {
                   <figcaption
                     className={`mt-6 max-w-md text-sm leading-relaxed ${T_MUTED}`}
                   >
-                    Mein Behandlungsraum in der Josefstadt. Zum Hausbesuch kommt eine mobile Liege mit – in wenigen Minuten aufgebaut.
+                    Mobile Behandlung vor Ort: Zum Hausbesuch kommt eine mobile Liege mit – in wenigen Minuten aufgebaut.
                   </figcaption>
                 </figure>
 
