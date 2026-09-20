@@ -556,9 +556,7 @@ export default async function MobileMassageWien() {
                   <ul className="mt-8 divide-y divide-white/10 border-y border-white/10">
                       <li className="grid grid-cols-[2.5rem_1fr] gap-x-4 py-4">
                         <Hairline className="mt-3" />
-                        <span data-edit-id="mm-vip-1" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>
-                          Behandlung im Hotelzimmer, in der Suite oder backstage
-                        </span>
+                        <span data-edit-id="mm-vip-1" className={`text-[16px] font-medium leading-snug ${T_PRIMARY}`}>{"Behandlung direkt im Hotelzimmer"}</span>
                       </li>
                       <li className="grid grid-cols-[2.5rem_1fr] gap-x-4 py-4">
                         <Hairline className="mt-3" />
