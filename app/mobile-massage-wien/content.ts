@@ -15,8 +15,8 @@ export const IMAGES = {
   room: "/images/0-heilmasseur-domenic-kc-rebell-wien.webp",
   /** Breakdance-Bühnenfoto 3000×2000, Tänzer mittig (object-position ≈ 50% 55%) */
   stage: "/images/breakdance.jpg",
-  /** Behandlung, warmes Licht, 1600×1066 */
-  treatment: "/images/behandlungsraum.webp",
+  /** Behandlung / Hero */
+  treatment: "/images/mobile-massage-hero.jpeg",
   /** Praxis-Behandlung mit Pflanze, 2000×1333 */
   treatmentWide: "/images/domenic-1080.webp",
 } as const;
