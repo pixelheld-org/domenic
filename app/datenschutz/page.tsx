@@ -126,11 +126,8 @@ export default function Datenschutz() {
             <h3 className="text-lg font-semibold text-[#111] mt-6 mb-2">
               Hosting (Vercel)
             </h3>
-            <p>
-              Diese Website wird bei Vercel Inc. gehostet. Bei jedem Zugriff
-              werden automatisch Server-Logfiles gespeichert. Vercel verarbeitet
-              Daten auch in den USA; die Übermittlung erfolgt auf Basis der
-              EU-Standardvertragsklauseln.
+            <p data-edit-id="datenschutz-hosting-text">
+              Diese Website wird bei Vercel Inc. (440 N Barranca Avenue #4133, Covina, CA 91723, USA) gehostet. Bei jedem Zugriff werden automatisch Server-Logfiles gespeichert. Vercel verarbeitet Daten auch in den USA. Vercel ist nach dem EU-US Data Privacy Framework zertifiziert, ergänzend gelten die EU-Standardvertragsklauseln.
             </p>
 
             <h3 data-edit-id="datenschutz-vercel-analytics-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
@@ -147,7 +144,7 @@ export default function Datenschutz() {
               Google Analytics
             </h3>
             <p data-edit-id="datenschutz-ga-text">
-              Wenn Sie im Cookie-Banner der Kategorie „Analyse & Verbesserung“ zustimmen, laden wir Google Analytics 4 der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland). Vorher wird keine Verbindung zu Google aufgebaut. Google Analytics setzt Cookies und wertet Ihre Nutzung der Website aus, die IP-Adresse wird dabei gekürzt. Daten können auch an Google LLC in den USA übermittelt werden. Google ist nach dem EU-US Data Privacy Framework zertifiziert. Ihre Einwilligung können Sie jederzeit über „Cookie-Einstellungen“ im Footer widerrufen.
+              Wenn Sie im Cookie-Banner der Kategorie „Analyse & Verbesserung“ zustimmen, laden wir Google Analytics 4 der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland), die die Daten in unserem Auftrag verarbeitet. Vorher wird keine Verbindung zu Google aufgebaut. Google Analytics setzt Cookies und wertet Ihre Nutzung der Website aus, die IP-Adresse wird dabei gekürzt. Daten können auch an Google LLC in den USA übermittelt werden. Google ist nach dem EU-US Data Privacy Framework zertifiziert. Ihre Einwilligung können Sie jederzeit über „Cookie-Einstellungen“ im Footer widerrufen.
             </p>
             <p className="mt-1">
               <strong>Rechtsgrundlage:</strong>{" "}
@@ -163,7 +160,7 @@ export default function Datenschutz() {
               Calendly
             </h3>
             <p data-edit-id="datenschutz-calendly-text">
-              Für die Terminbuchung wird Calendly eingebunden. Beim Laden des Buchungsformulars werden Daten an Calendly LLC (USA) übermittelt. Die Übermittlung erfolgt auf Basis der EU-Standardvertragsklauseln.
+              Für die Terminbuchung wird Calendly eingebunden. Beim Laden des Buchungsformulars werden Daten an Calendly, LLC (USA) übermittelt. Calendly ist nach dem EU-US Data Privacy Framework zertifiziert, ergänzend gelten die EU-Standardvertragsklauseln.
             </p>
             <h3 data-edit-id="datenschutz-google-reviews-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
               Google-Bewertungen
@@ -175,7 +172,7 @@ export default function Datenschutz() {
               Stripe
             </h3>
             <p data-edit-id="datenschutz-stripe-text">
-              Online-Zahlungen für Gutscheine und Block-Karten wickeln wir über Stripe ab (Stripe Payments Europe, Ltd., 1 Grand Canal Street Lower, Dublin 2, Irland). Erst wenn Sie auf der Gutschein-Seite zum Bezahlschritt kommen, wird das Zahlungsformular von Stripe geladen. Stripe verarbeitet dann Ihre Zahlungsdaten, Name, E-Mail-Adresse, IP-Adresse und Geräteinformationen und setzt Cookies, die für die sichere Zahlung und zur Betrugsvorbeugung nötig sind. Stripe kann Daten auch an Stripe, Inc. in den USA übermitteln, auf Basis des EU-US Data Privacy Framework und der EU-Standardvertragsklauseln. Details: stripe.com/at/privacy.
+              Online-Zahlungen für Gutscheine und Block-Karten wickeln wir über Stripe ab (Stripe Payments Europe, Limited, Dublin, Irland). Erst wenn Sie auf der Gutschein-Seite zum Bezahlschritt kommen, wird das Zahlungsformular von Stripe geladen. Stripe verarbeitet dann Ihre Zahlungsdaten, Name, E-Mail-Adresse, IP-Adresse und Geräteinformationen und setzt Cookies, die für die sichere Zahlung und zur Betrugsvorbeugung nötig sind. Für die Zahlungsabwicklung handelt Stripe in unserem Auftrag, für Betrugsvorbeugung und gesetzliche Pflichten (z. B. Geldwäscheprävention) als eigenständig Verantwortlicher. Stripe kann Daten auch an Stripe-Gesellschaften in den USA übermitteln, auf Basis des EU-US Data Privacy Framework und der EU-Standardvertragsklauseln. Details: stripe.com/at/privacy.
             </p>
             <p className="mt-1">
               <strong>Rechtsgrundlage:</strong>{" "}
@@ -185,7 +182,7 @@ export default function Datenschutz() {
               Sanity
             </h3>
             <p data-edit-id="datenschutz-sanity-text">
-              Gekaufte Gutscheine speichern wir bei Sanity (Sanity AS, Oslo, Norwegen), damit wir sie verwalten und einlösen können. Gespeichert werden die unter 2.4 genannten Bestelldaten. Sanity verarbeitet die Daten in unserem Auftrag, teilweise auch in den USA auf Basis der EU-Standardvertragsklauseln.
+              Gekaufte Gutscheine speichern wir bei Sanity (Sanity US Inc., 351 California Street, Suite 650, San Francisco, CA 94104, USA), damit wir sie verwalten und einlösen können. Gespeichert werden die unter 2.4 genannten Bestelldaten. Sanity verarbeitet die Daten in unserem Auftrag auf Servern von Google Cloud in Belgien und teilweise in den USA. Die Übermittlung in die USA erfolgt auf Basis der EU-Standardvertragsklauseln.
             </p>
             <p className="mt-1">
               <strong>Rechtsgrundlage:</strong>{" "}
@@ -195,7 +192,7 @@ export default function Datenschutz() {
               Resend
             </h3>
             <p data-edit-id="datenschutz-resend-text">
-              Die Bestätigungs-E-Mail mit Ihrem Gutschein versenden wir über Resend (Resend, Inc., USA). Dafür werden Ihr Name, Ihre E-Mail-Adresse und der Inhalt der Bestätigung an Resend übermittelt. Die Übermittlung erfolgt auf Basis der EU-Standardvertragsklauseln.
+              Die Bestätigungs-E-Mail mit Ihrem Gutschein versenden wir über Resend (Plus Five Five, Inc., USA). Dafür werden Ihr Name, Ihre E-Mail-Adresse und der Inhalt der Bestätigung an Resend übermittelt und in den USA gespeichert. Resend ist nach dem EU-US Data Privacy Framework zertifiziert, ergänzend gelten die EU-Standardvertragsklauseln.
             </p>
             <p className="mt-1">
               <strong>Rechtsgrundlage:</strong>{" "}
