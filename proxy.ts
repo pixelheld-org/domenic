@@ -2,14 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
-  // Forward the pathname so the server-rendered layout can read it via headers()
-  // and pass it to the Navbar. Without this, usePathname() is null during static
-  // prerender (proxy file is configured), causing the dark-hero "/" page to
-  // render the navbar with dark text until a client-side state change.
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-pathname", request.nextUrl.pathname);
-  const passThrough = () =>
-    NextResponse.next({ request: { headers: requestHeaders } });
+  const passThrough = () => NextResponse.next();
 
   const password = process.env.SITE_PASSWORD;
 

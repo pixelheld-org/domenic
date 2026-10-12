@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Termin buchen | Heilmasseur Domenic Hacker – Wien 1080",
   description:
     "Buchen Sie jetzt Ihren Termin bei Heilmasseur Domenic Hacker in Wien 1080. Heilmassage, Lymphdrainage & Klassische Massage. Online-Terminbuchung.",
+  alternates: {
+    canonical: "https://heilmasseur-domenic.at/buchen",
+  },
 };
 
 export default function BuchenPage() {

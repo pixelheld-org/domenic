@@ -5,6 +5,9 @@ import { ArrowLeft } from "lucide-react";
 export const metadata: Metadata = {
   title: "Impressum | Heilmasseur Domenic Hacker",
   description: "Impressum und rechtliche Informationen von Heilmasseur Domenic Hacker, Wien 1080.",
+  alternates: {
+    canonical: "https://heilmasseur-domenic.at/impressum",
+  },
 };
 
 export default function Impressum() {
@@ -25,22 +28,22 @@ export default function Impressum() {
 
         <div className="prose prose-gray max-w-none space-y-6 text-[#333] leading-relaxed">
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-angaben-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Angaben gemäß § 5 ECG / § 25 MedienG
             </h2>
             <p>
-              <strong>Domenic Hacker</strong>
+              <strong data-edit-id="impressum-name">Domenic Hacker</strong>
               <br />
-              Diplomierter medizinischer Masseur und Heilmasseur
+              <span data-edit-id="impressum-angaben-beruf">Diplomierter medizinischer Masseur und Heilmasseur</span>
               <br />
-              Feldgasse 3/20
+              <span data-edit-id="impressum-strasse">Feldgasse 3/20</span>
               <br />
-              1080 Wien, Österreich
+              <span data-edit-id="impressum-ort">1080 Wien, Österreich</span>
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-kontakt-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Kontakt
             </h2>
             <p>
@@ -63,46 +66,46 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-beruf-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Berufsbezeichnung
             </h2>
             <p>
-              Diplomierter medizinischer Masseur und Heilmasseur
+              <span data-edit-id="impressum-beruf-text">Diplomierter medizinischer Masseur und Heilmasseur</span>
               <br />
-              Berufsbezeichnung verliehen in: Österreich
+              <span data-edit-id="impressum-beruf-land">Berufsbezeichnung verliehen in: Österreich</span>
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-behoerde-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Zuständige Aufsichtsbehörde
             </h2>
             <p>
-              Bezirkshauptmannschaft / Magistrat Wien
+              <span data-edit-id="impressum-behoerde-text">Bezirkshauptmannschaft / Magistrat Wien</span>
               <br />
-              Gewerbebehörde: Magistratisches Bezirksamt für den 8. Bezirk
+              <span data-edit-id="impressum-gewerbebehoerde">Gewerbebehörde: Magistratisches Bezirksamt für den 8. Bezirk</span>
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-kammer-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Kammerzugehörigkeit
             </h2>
             <p>
-              Wirtschaftskammer Wien (WKO)
+              <span data-edit-id="impressum-kammer-text">Wirtschaftskammer Wien (WKO)</span>
               <br />
-              Fachgruppe der persönlichen Dienstleister
+              <span data-edit-id="impressum-kammer-fachgruppe">Fachgruppe der persönlichen Dienstleister</span>
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-recht-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Anwendbare Rechtsvorschriften
             </h2>
             <p>
-              Medizinischer Masseur- und Heilmasseurgesetz (MMHmG)
+              <span data-edit-id="impressum-recht-mmhmg">Medizinischer Masseur- und Heilmasseurgesetz (MMHmG)</span>
               <br />
-              Gewerbeordnung (GewO)
+              <span data-edit-id="impressum-recht-gewo">Gewerbeordnung (GewO)</span>
               <br />
               Zugänglich unter:{" "}
               <a
@@ -117,28 +120,10 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
-              Streitschlichtung
-            </h2>
-            <p>
-              Die Europäische Kommission stellt eine Plattform zur
-              Online-Streitbeilegung (OS) bereit:{" "}
-              <a
-                href="https://ec.europa.eu/consumers/odr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#0d4f4f] hover:underline"
-              >
-                ec.europa.eu/consumers/odr/
-              </a>
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-haftung-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Haftungsausschluss
             </h2>
-            <p>
+            <p data-edit-id="impressum-haftung-text">
               Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt.
               Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte
               kann jedoch keine Gewähr übernommen werden.

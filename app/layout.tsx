@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { headers } from "next/headers";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/JsonLd";
@@ -33,12 +32,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const initialPathname = (await headers()).get("x-pathname") ?? "/";
   return (
     <html lang="de" className={`${geistSans.variable} h-full antialiased`}>
       <head>
@@ -77,7 +75,7 @@ export default async function RootLayout({
         </Script>
       </head>
       <body className="min-h-full flex flex-col">
-        <Navbar initialPathname={initialPathname} />
+        <Navbar />
         {children}
         <SiteStickyCta
           phone="+43 670 189 52 56"
