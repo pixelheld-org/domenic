@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Star } from "lucide-react";
 import { GoogleReviewsMarquee } from "./GoogleReviewsMarquee";
 
@@ -104,9 +105,7 @@ async function fetchGoogleReviews(): Promise<PlacesData | null> {
         rating: 5,
         text: r.text?.text ?? r.originalText?.text ?? "",
         date: r.relativePublishTimeDescription ?? "",
-        // Profilbilder bewusst nicht übernehmen: Sie kämen direkt von
-        // Google-Servern, ohne Zustimmung. Angezeigt werden die Initialen.
-        photoUri: null,
+        photoUri: r.authorAttribution?.photoUri ?? null,
       }));
 
     return {
@@ -178,14 +177,13 @@ function ReviewerAvatar({
     <div className="relative w-8 h-8 rounded-full bg-[#0d4f4f]/10 flex items-center justify-center text-xs font-bold text-[#0d4f4f] overflow-hidden flex-shrink-0">
       {name.charAt(0).toUpperCase()}
       {photoUri && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        // Über /_next/image ausgeliefert, nicht direkt von Google
+        <Image
           src={photoUri}
           alt=""
-          width={32}
-          height={32}
-          className="absolute inset-0 w-full h-full object-cover"
-          referrerPolicy="no-referrer"
+          fill
+          sizes="32px"
+          className="object-cover"
         />
       )}
     </div>

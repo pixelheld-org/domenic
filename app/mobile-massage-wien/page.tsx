@@ -246,16 +246,13 @@ export default async function MobileMassageWien() {
                         >
                           {a.name.charAt(0).toUpperCase()}
                           {a.photoUri && (
-                            // eslint-disable-next-line @next/next/no-img-element
-                            <img
+                            // Über /_next/image ausgeliefert, nicht direkt von Google
+                            <Image
                               src={a.photoUri}
                               alt=""
-                              width={32}
-                              height={32}
-                              loading="lazy"
-                              decoding="async"
-                              className="absolute inset-0 h-full w-full object-cover"
-                              referrerPolicy="no-referrer"
+                              fill
+                              sizes="32px"
+                              className="object-cover"
                             />
                           )}
                         </span>

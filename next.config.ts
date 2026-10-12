@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
   },
   images: {
     qualities: [75, 85],
+    // Profilbilder der Google-Bewertungen. Sie laufen über den Image-Optimizer
+    // (/_next/image), damit der Browser keine Verbindung zu Google aufbaut.
+    remotePatterns: [new URL("https://lh3.googleusercontent.com/**")],
   },
   async headers() {
     // Gelten überall. Kein X-Frame-Options/frame-ancestors, weil das

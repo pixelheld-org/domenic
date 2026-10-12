@@ -166,7 +166,7 @@ export default function Datenschutz() {
               Google-Bewertungen
             </h3>
             <p data-edit-id="datenschutz-google-reviews-text">
-              Zur Darstellung unserer Google-Bewertungen ruft unser Server die Bewertungen über die Google Places API ab. Ihr Browser stellt dabei keine Verbindung zu Google her, es werden keine Daten der Website-Besucher an Google übermittelt. Profilbilder der Bewertenden zeigen wir nicht an.
+              Zur Darstellung unserer Google-Bewertungen ruft unser Server die Bewertungen über die Google Places API ab. Auch die Profilbilder der Bewertenden lädt unser Server und liefert sie selbst aus. Ihr Browser stellt dabei keine Verbindung zu Google her, es werden keine Daten der Website-Besucher an Google übermittelt.
             </p>
             <h3 data-edit-id="datenschutz-stripe-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
               Stripe

@@ -59,9 +59,7 @@ export async function fetchReviewSummary(): Promise<ReviewSummary> {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .map((r: any) => ({
         name: r.authorAttribution?.displayName ?? "Anonym",
-        // Profilbilder bewusst nicht übernehmen: Sie kämen direkt von
-        // Google-Servern, ohne Zustimmung. Angezeigt werden die Initialen.
-        photoUri: null,
+        photoUri: r.authorAttribution?.photoUri ?? null,
       }));
 
     return {
