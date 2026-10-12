@@ -104,7 +104,9 @@ async function fetchGoogleReviews(): Promise<PlacesData | null> {
         rating: 5,
         text: r.text?.text ?? r.originalText?.text ?? "",
         date: r.relativePublishTimeDescription ?? "",
-        photoUri: r.authorAttribution?.photoUri ?? null,
+        // Profilbilder bewusst nicht übernehmen: Sie kämen direkt von
+        // Google-Servern, ohne Zustimmung. Angezeigt werden die Initialen.
+        photoUri: null,
       }));
 
     return {

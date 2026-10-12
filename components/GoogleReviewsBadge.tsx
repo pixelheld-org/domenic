@@ -11,14 +11,6 @@ const FALLBACK_AVATARS: AvatarData[] = [
 
 export type AvatarData = { name: string; photoUri: string | null };
 
-/**
- * Google liefert die Autorenbilder standardmäßig als s128, angezeigt werden
- * sie mit 32–36 px. Die Größe steckt als „=s128-…“ in der URL.
- */
-function shrinkAvatar(url: string | null): string | null {
-  return url ? url.replace(/=s\d+-/, "=s72-") : null;
-}
-
 export type ReviewSummary = {
   rating: number;
   count: number;
@@ -67,7 +59,9 @@ export async function fetchReviewSummary(): Promise<ReviewSummary> {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .map((r: any) => ({
         name: r.authorAttribution?.displayName ?? "Anonym",
-        photoUri: shrinkAvatar(r.authorAttribution?.photoUri ?? null),
+        // Profilbilder bewusst nicht übernehmen: Sie kämen direkt von
+        // Google-Servern, ohne Zustimmung. Angezeigt werden die Initialen.
+        photoUri: null,
       }));
 
     return {

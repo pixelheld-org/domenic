@@ -105,6 +105,17 @@ export default function Datenschutz() {
               <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO
               (berechtigte Interessen).
             </p>
+
+            <h3 data-edit-id="datenschutz-gutschein-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
+              2.4 Gutscheinkauf
+            </h3>
+            <p data-edit-id="datenschutz-gutschein-text">
+              Wenn Sie online einen Gutschein oder eine Block-Karte kaufen, verarbeiten wir Ihren Namen, Ihre E-Mail-Adresse, optional den Namen der beschenkten Person sowie die Bestelldaten (Produkt, Betrag, Gutscheincode, Kaufdatum). Wir benötigen diese Daten, um die Zahlung abzuwickeln, den Gutschein auszustellen, Ihnen die Bestätigung per E-Mail zu senden und den Gutschein später einzulösen. Die Zahlungsdaten selbst (z. B. Kartennummer) gibt Stripe nicht an uns weiter.
+            </p>
+            <p className="mt-1">
+              <strong>Rechtsgrundlage:</strong>{" "}
+              <span data-edit-id="datenschutz-gutschein-basis">Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und Art. 6 Abs. 1 lit. c DSGVO (steuerrechtliche Aufbewahrungspflichten).</span>
+            </p>
           </section>
 
           <section>
@@ -122,64 +133,73 @@ export default function Datenschutz() {
               EU-Standardvertragsklauseln.
             </p>
 
-            <h3 className="text-lg font-semibold text-[#111] mt-6 mb-2">
+            <h3 data-edit-id="datenschutz-vercel-analytics-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
+              Vercel Web Analytics
+            </h3>
+            <p data-edit-id="datenschutz-vercel-analytics-text">
+              Wir nutzen Vercel Web Analytics, um zu sehen, welche Seiten aufgerufen werden. Der Dienst setzt keine Cookies und erstellt keine Profile. Besucher werden nur über einen Hash erkannt, der täglich verworfen wird. Wir sehen ausschließlich zusammengefasste Zahlen.
+            </p>
+            <p className="mt-1">
+              <strong>Rechtsgrundlage:</strong>{" "}
+              <span data-edit-id="datenschutz-vercel-analytics-basis">Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer funktionierenden, verbesserten Website).</span>
+            </p>
+            <h3 data-edit-id="datenschutz-ga-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
               Google Analytics
             </h3>
-            <p>
-              Diese Website nutzt Google Analytics zur Analyse der
-              Website-Nutzung. Die IP-Adresse wird vor der Speicherung
-              anonymisiert. Die Datenverarbeitung erfolgt auf Grundlage Ihrer
-              Einwilligung über den Cookie-Banner. Sie können der Datenerfassung
-              jederzeit widersprechen, indem Sie Ihre Cookie-Einstellungen
-              anpassen.
-              <br />
-              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO
-              (Einwilligung).
+            <p data-edit-id="datenschutz-ga-text">
+              Wenn Sie im Cookie-Banner der Kategorie „Analyse & Verbesserung“ zustimmen, laden wir Google Analytics 4 der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland). Vorher wird keine Verbindung zu Google aufgebaut. Google Analytics setzt Cookies und wertet Ihre Nutzung der Website aus, die IP-Adresse wird dabei gekürzt. Daten können auch an Google LLC in den USA übermittelt werden. Google ist nach dem EU-US Data Privacy Framework zertifiziert. Ihre Einwilligung können Sie jederzeit über „Cookie-Einstellungen“ im Footer widerrufen.
             </p>
-
-            <h3 className="text-lg font-semibold text-[#111] mt-6 mb-2">
-              Google Tag Manager
+            <p className="mt-1">
+              <strong>Rechtsgrundlage:</strong>{" "}
+              <span data-edit-id="datenschutz-ga-basis">Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</span>
+            </p>
+            <h3 data-edit-id="datenschutz-fonts-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
+              Schriftarten
             </h3>
-            <p>
-              Wir nutzen den Google Tag Manager zur Verwaltung unserer
-              Tracking-Tools. Der Tag Manager selbst erfasst keine
-              personenbezogenen Daten.
+            <p data-edit-id="datenschutz-fonts-text">
+              Die Schriftart dieser Website wird von unserem eigenen Server ausgeliefert. Beim Laden der Seite wird keine Verbindung zu Google Fonts oder anderen Schrift-Anbietern aufgebaut.
             </p>
-
-            <h3 className="text-lg font-semibold text-[#111] mt-6 mb-2">
-              Google Fonts
-            </h3>
-            <p>
-              Diese Website verwendet Google Fonts, die lokal eingebunden werden.
-              Es findet keine Verbindung zu Google-Servern statt.
-            </p>
-
-            <h3 className="text-lg font-semibold text-[#111] mt-6 mb-2">
+            <h3 data-edit-id="datenschutz-calendly-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
               Calendly
             </h3>
-            <p>
-              Für die Terminbuchung wird Calendly eingebunden. Beim Laden des
-              Buchungsformulars werden Daten an Calendly Inc. (USA) übermittelt.
-              Die Übermittlung erfolgt auf Basis der EU-Standardvertragsklauseln.
+            <p data-edit-id="datenschutz-calendly-text">
+              Für die Terminbuchung wird Calendly eingebunden. Beim Laden des Buchungsformulars werden Daten an Calendly LLC (USA) übermittelt. Die Übermittlung erfolgt auf Basis der EU-Standardvertragsklauseln.
             </p>
-
-            <h3 className="text-lg font-semibold text-[#111] mt-6 mb-2">
-              Google Places API
+            <h3 data-edit-id="datenschutz-google-reviews-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
+              Google-Bewertungen
             </h3>
-            <p>
-              Zur Darstellung von Google-Bewertungen nutzen wir die Google Places
-              API. Dabei werden serverseitig Bewertungsdaten von Google abgerufen.
-              Es werden keine personenbezogenen Daten der Website-Besucher an
-              Google übermittelt.
+            <p data-edit-id="datenschutz-google-reviews-text">
+              Zur Darstellung unserer Google-Bewertungen ruft unser Server die Bewertungen über die Google Places API ab. Ihr Browser stellt dabei keine Verbindung zu Google her, es werden keine Daten der Website-Besucher an Google übermittelt. Profilbilder der Bewertenden zeigen wir nicht an.
             </p>
-
-            <h3 className="text-lg font-semibold text-[#111] mt-6 mb-2">
-              Sanity CMS
+            <h3 data-edit-id="datenschutz-stripe-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
+              Stripe
             </h3>
-            <p>
-              Für die Verwaltung von Inhalten nutzen wir Sanity.io als
-              Content-Management-System. Sanity verarbeitet keine
-              personenbezogenen Daten der Website-Besucher.
+            <p data-edit-id="datenschutz-stripe-text">
+              Online-Zahlungen für Gutscheine und Block-Karten wickeln wir über Stripe ab (Stripe Payments Europe, Ltd., 1 Grand Canal Street Lower, Dublin 2, Irland). Erst wenn Sie auf der Gutschein-Seite zum Bezahlschritt kommen, wird das Zahlungsformular von Stripe geladen. Stripe verarbeitet dann Ihre Zahlungsdaten, Name, E-Mail-Adresse, IP-Adresse und Geräteinformationen und setzt Cookies, die für die sichere Zahlung und zur Betrugsvorbeugung nötig sind. Stripe kann Daten auch an Stripe, Inc. in den USA übermitteln, auf Basis des EU-US Data Privacy Framework und der EU-Standardvertragsklauseln. Details: stripe.com/at/privacy.
+            </p>
+            <p className="mt-1">
+              <strong>Rechtsgrundlage:</strong>{" "}
+              <span data-edit-id="datenschutz-stripe-basis">Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an sicherer Zahlungsabwicklung).</span>
+            </p>
+            <h3 data-edit-id="datenschutz-sanity-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
+              Sanity
+            </h3>
+            <p data-edit-id="datenschutz-sanity-text">
+              Gekaufte Gutscheine speichern wir bei Sanity (Sanity AS, Oslo, Norwegen), damit wir sie verwalten und einlösen können. Gespeichert werden die unter 2.4 genannten Bestelldaten. Sanity verarbeitet die Daten in unserem Auftrag, teilweise auch in den USA auf Basis der EU-Standardvertragsklauseln.
+            </p>
+            <p className="mt-1">
+              <strong>Rechtsgrundlage:</strong>{" "}
+              <span data-edit-id="datenschutz-sanity-basis">Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).</span>
+            </p>
+            <h3 data-edit-id="datenschutz-resend-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
+              Resend
+            </h3>
+            <p data-edit-id="datenschutz-resend-text">
+              Die Bestätigungs-E-Mail mit Ihrem Gutschein versenden wir über Resend (Resend, Inc., USA). Dafür werden Ihr Name, Ihre E-Mail-Adresse und der Inhalt der Bestätigung an Resend übermittelt. Die Übermittlung erfolgt auf Basis der EU-Standardvertragsklauseln.
+            </p>
+            <p className="mt-1">
+              <strong>Rechtsgrundlage:</strong>{" "}
+              <span data-edit-id="datenschutz-resend-basis">Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).</span>
             </p>
           </section>
 
@@ -187,13 +207,8 @@ export default function Datenschutz() {
             <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
               4. Cookies
             </h2>
-            <p>
-              Diese Website verwendet Cookies. Technisch notwendige Cookies
-              werden ohne Einwilligung gesetzt. Analyse-Cookies (z.B. Google
-              Analytics) werden nur mit Ihrer ausdrücklichen Einwilligung über
-              den Cookie-Banner gesetzt. Sie können Ihre Cookie-Einstellungen
-              jederzeit über den Link „Cookie-Einstellungen“ im Footer dieser
-              Website anpassen.
+            <p data-edit-id="datenschutz-cookies-text">
+              Diese Website verwendet Cookies. Technisch notwendige Cookies werden ohne Einwilligung gesetzt. Dazu gehören das Cookie, in dem wir Ihre Cookie-Auswahl speichern, die Cookies von Calendly auf der Buchungsseite und die Cookies von Stripe im Bezahlschritt der Gutschein-Seite. Analyse-Cookies von Google Analytics werden nur mit Ihrer Einwilligung über den Cookie-Banner gesetzt. Ihre Auswahl können Sie jederzeit über den Link „Cookie-Einstellungen“ im Footer ändern.
             </p>
           </section>
 
@@ -299,7 +314,7 @@ export default function Datenschutz() {
               8. Aktualität und Änderungen
             </h2>
             <p>
-              Diese Datenschutzerklärung wurde zuletzt am 09.04.2026
+              Diese Datenschutzerklärung wurde zuletzt am 12.10.2026
               aktualisiert. Wir behalten uns vor, diese Datenschutzerklärung
               anzupassen, damit sie stets den aktuellen rechtlichen
               Anforderungen entspricht.

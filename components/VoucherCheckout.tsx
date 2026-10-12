@@ -1,12 +1,20 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { loadStripe } from "@stripe/stripe-js";
+// "/pure" lädt stripe.js erst beim Aufruf von loadStripe, nicht schon beim
+// Import. So setzt Stripe keine Cookies, bevor jemand zum Bezahlschritt kommt.
+import { loadStripe } from "@stripe/stripe-js/pure";
+import type { Stripe } from "@stripe/stripe-js";
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js";
 
-const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-  ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
-  : null;
+let stripePromise: Promise<Stripe | null> | null = null;
+
+function getStripe() {
+  const key = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+  if (!key) return null;
+  stripePromise ??= loadStripe(key);
+  return stripePromise;
+}
 
 export type CheckoutFormInput = {
   productType: string;
@@ -17,6 +25,7 @@ export type CheckoutFormInput = {
 };
 
 export function VoucherCheckout({ input }: { input: CheckoutFormInput }) {
+  const [stripe] = useState(getStripe);
   const [error, setError] = useState<string | null>(null);
 
   const fetchClientSecret = useCallback(async () => {
@@ -35,7 +44,7 @@ export function VoucherCheckout({ input }: { input: CheckoutFormInput }) {
     return data.clientSecret;
   }, [input]);
 
-  if (!stripePromise) {
+  if (!stripe) {
     return (
       <div className="rounded-2xl bg-red-50 border border-red-200 p-6 text-red-900">
         Stripe ist nicht konfiguriert. Bitte später nochmal versuchen.
@@ -50,7 +59,7 @@ export function VoucherCheckout({ input }: { input: CheckoutFormInput }) {
           {error}
         </div>
       )}
-      <EmbeddedCheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}>
+      <EmbeddedCheckoutProvider stripe={stripe} options={{ fetchClientSecret }}>
         <EmbeddedCheckout />
       </EmbeddedCheckoutProvider>
     </div>

@@ -11,6 +11,23 @@ declare global {
   }
 }
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
+/**
+ * Lädt gtag.js erst, wenn der Besucher Analyse-Cookies zugestimmt hat.
+ * Vorher geht keine Anfrage an Google raus.
+ */
+function loadGoogleAnalytics() {
+  if (!GA_ID || document.getElementById("ga4-src")) return;
+  const script = document.createElement("script");
+  script.id = "ga4-src";
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  document.head.appendChild(script);
+  window.gtag("js", new Date());
+  window.gtag("config", GA_ID, { anonymize_ip: true });
+}
+
 export default function CookieConsentComponent() {
   useEffect(() => {
     let lastAnalytics: boolean | null = null;
@@ -26,11 +43,18 @@ export default function CookieConsentComponent() {
         security_storage: "granted",
       } as const;
 
-      if (typeof window.gtag === "function") {
-        window.gtag("consent", "update", consentState);
-      }
-
       window.dataLayer = window.dataLayer || [];
+      // Falls das Consent-Mode-Skript aus dem Layout noch nicht gelaufen ist
+      window.gtag =
+        window.gtag ||
+        function gtag() {
+          // gtag.js erwartet das arguments-Objekt, kein Array
+          // eslint-disable-next-line prefer-rest-params
+          window.dataLayer.push(arguments);
+        };
+
+      window.gtag("consent", "update", consentState);
+      if (analytics) loadGoogleAnalytics();
 
       if (lastAnalytics === null || analytics !== lastAnalytics) {
         if (analytics) {
@@ -116,7 +140,7 @@ export default function CookieConsentComponent() {
                 {
                   title: "Technisch notwendig",
                   description:
-                    "Diese Cookies sind für den Betrieb der Website unerlässlich und können nicht deaktiviert werden. Dazu gehören auch Cookies von Calendly, die für die Online-Terminbuchung erforderlich sind.",
+                    "Diese Cookies sind für den Betrieb der Website unerlässlich und können nicht deaktiviert werden. Dazu gehören Cookies von Calendly für die Online-Terminbuchung und Cookies von Stripe, die erst im Bezahlschritt beim Gutscheinkauf gesetzt werden.",
                   linkedCategory: "necessary",
                 },
                 {
