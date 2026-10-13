@@ -53,6 +53,11 @@ export default function CookieConsentComponent() {
           window.dataLayer.push(arguments);
         };
 
+      // Nach einem Widerruf ist gtag.js schon geladen und würde bis zum Neuladen
+      // weiter cookielose Pings an Google senden. Das Opt-out-Flag stoppt sie.
+      if (GA_ID) {
+        (window as unknown as Record<string, unknown>)[`ga-disable-${GA_ID}`] = !analytics;
+      }
       window.gtag("consent", "update", consentState);
       if (analytics) loadGoogleAnalytics();
 
@@ -80,16 +85,15 @@ export default function CookieConsentComponent() {
         analytics: {
           autoClear: {
             cookies: [
+              // Deckt _ga und _ga_<ID> ab, die einzigen GA4-Cookies
               { name: /^_ga/ },
-              { name: "_gid" },
-              { name: /^_gat/ },
             ],
           },
           services: {
-            googleTagManager: {
-              label: "Google Tag Manager",
+            googleTagManager: { // Schlüssel bleibt, steht in bestehenden Consent-Cookies
+              label: "Google Analytics",
               onAccept: () => {
-                // GTM runs via layout, consent is updated via syncConsentToTags
+                // gtag.js wird in syncConsentToTags nachgeladen
               },
               onReject: () => {
                 // Cookies are cleared via autoClear above
@@ -114,7 +118,7 @@ export default function CookieConsentComponent() {
             consentModal: {
               title: "Darf's ein Keks sein? 🍪",
               description:
-                "Wir setzen Cookies ein, damit diese Website reibungslos läuft. Einige helfen uns zu verstehen, wie Besucher die Seite nutzen – anonym und ohne persönliche Daten.",
+                "Wir setzen Cookies ein, damit diese Website reibungslos läuft. Einige helfen uns zu verstehen, wie Besucher die Seite nutzen (Google Analytics, nur mit Ihrer Zustimmung).",
               acceptAllBtn: "Alle akzeptieren",
               acceptNecessaryBtn: "Nur das Nötigste",
               showPreferencesBtn: "Einstellungen",
@@ -146,7 +150,7 @@ export default function CookieConsentComponent() {
                 {
                   title: "Analyse & Verbesserung",
                   description:
-                    "Diese Cookies helfen uns zu verstehen, welche Inhalte gefragt sind. Alle Daten werden anonym erhoben.",
+                    "Diese Cookies von Google Analytics helfen uns zu verstehen, welche Inhalte gefragt sind. Details stehen in unserer Datenschutzerklärung.",
                   linkedCategory: "analytics",
                   cookieTable: {
                     headers: {
@@ -158,17 +162,12 @@ export default function CookieConsentComponent() {
                       {
                         name: "_ga",
                         domain: location.hostname,
-                        desc: "Google Analytics: Unterscheidet Besucher anonym.",
+                        desc: "Google Analytics: Unterscheidet Besucher über eine pseudonyme ID (2 Jahre).",
                       },
                       {
-                        name: "_gid",
+                        name: "_ga_<ID>",
                         domain: location.hostname,
-                        desc: "Google Analytics: Speichert die Sitzung temporär.",
-                      },
-                      {
-                        name: "_gat",
-                        domain: location.hostname,
-                        desc: "Google Analytics: Drosselt die Anfragerate.",
+                        desc: "Google Analytics: Speichert den Sitzungsstatus (2 Jahre).",
                       },
                     ],
                   },

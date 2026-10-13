@@ -18,6 +18,8 @@ const CALENDLY_URL = "https://calendly.com/praxis-heilmasseur-domenic";
 export function BookingContent() {
   const [booked, setBooked] = useState(false);
   const [iframeKey, setIframeKey] = useState(0);
+  // Google Maps erst auf Klick laden, sonst geht schon beim Seitenaufruf die IP an Google
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   // Listen for Calendly event_scheduled postMessage
   useEffect(() => {
@@ -230,14 +232,31 @@ export function BookingContent() {
             </div>
 
             <div className="rounded-3xl overflow-hidden shadow-xl shadow-black/5 border border-gray-100">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2658.6!2d16.349!3d48.211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sFeldgasse+3%2C+1080+Wien!5e0!3m2!1sde!2sat!4v1"
-                className="w-full h-[400px] lg:h-full min-h-[400px] border-0"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Praxis Standort - Feldgasse 3/20, 1080 Wien"
-              />
+              {mapLoaded ? (
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2658.6!2d16.349!3d48.211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sFeldgasse+3%2C+1080+Wien!5e0!3m2!1sde!2sat!4v1"
+                  className="w-full h-[400px] lg:h-full min-h-[400px] border-0"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Praxis Standort - Feldgasse 3/20, 1080 Wien"
+                />
+              ) : (
+                <div className="flex h-full min-h-[400px] flex-col items-center justify-center gap-4 bg-[#f7f7f5] p-8 text-center">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#0d4f4f]/10">
+                    <MapPin size={26} className="text-[#0d4f4f]" />
+                  </div>
+                  <p data-edit-id="buchen-map-hinweis" className="max-w-xs text-sm text-[#555]">
+                    Beim Laden der Karte werden Daten an Google übermittelt.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setMapLoaded(true)}
+                    className="rounded-full bg-[#0d4f4f] px-6 py-3 text-sm font-bold text-white transition-colors duration-200 hover:bg-[#0a3d3d]"
+                  >
+                    <span data-edit-id="buchen-map-button">Karte laden</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

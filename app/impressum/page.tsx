@@ -39,6 +39,8 @@ export default function Impressum() {
               <span data-edit-id="impressum-strasse">Feldgasse 3/20</span>
               <br />
               <span data-edit-id="impressum-ort">1080 Wien, Österreich</span>
+              <br />
+              <span data-edit-id="impressum-gegenstand">Unternehmensgegenstand: Heilmassage und Massage</span>
             </p>
           </section>
 
@@ -73,6 +75,8 @@ export default function Impressum() {
               <span data-edit-id="impressum-beruf-text">Diplomierter medizinischer Masseur und Heilmasseur</span>
               <br />
               <span data-edit-id="impressum-beruf-land">Berufsbezeichnung verliehen in: Österreich</span>
+              <br />
+              <span data-edit-id="impressum-gewerbe">Gewerbe: Massage, ausgenommen ganzheitlich in sich geschlossene Systeme (GISA-Zahl 38211751)</span>
             </p>
           </section>
 
@@ -83,7 +87,7 @@ export default function Impressum() {
             <p>
               <span data-edit-id="impressum-behoerde-text">Heilmasseur (freiberuflich): Magistrat der Stadt Wien</span>
               <br />
-              <span data-edit-id="impressum-gewerbebehoerde">Gewerbebehörde: Magistratisches Bezirksamt für den 8. Bezirk</span>
+              <span data-edit-id="impressum-gewerbebehoerde">Gewerbebehörde: Magistratisches Bezirksamt für den 1. und 8. Bezirk</span>
             </p>
           </section>
 
@@ -94,7 +98,7 @@ export default function Impressum() {
             <p>
               <span data-edit-id="impressum-kammer-text">Wirtschaftskammer Wien (WKO)</span>
               <br />
-              <span data-edit-id="impressum-kammer-fachgruppe">Fachgruppe der persönlichen Dienstleister</span>
+              <span data-edit-id="impressum-kammer-fachgruppe">Landesinnung Wien der Fußpfleger, Kosmetiker und Masseure</span>
             </p>
           </section>
 

@@ -144,7 +144,7 @@ export default function Datenschutz() {
               Google Analytics
             </h3>
             <p data-edit-id="datenschutz-ga-text">
-              Wenn Sie im Cookie-Banner der Kategorie „Analyse & Verbesserung“ zustimmen, laden wir Google Analytics 4 der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland), die die Daten in unserem Auftrag verarbeitet. Vorher wird keine Verbindung zu Google aufgebaut. Google Analytics setzt Cookies und wertet Ihre Nutzung der Website aus, die IP-Adresse wird dabei gekürzt. Daten können auch an Google LLC in den USA übermittelt werden. Google ist nach dem EU-US Data Privacy Framework zertifiziert. Ihre Einwilligung können Sie jederzeit über „Cookie-Einstellungen“ im Footer widerrufen.
+              Wenn Sie im Cookie-Banner der Kategorie „Analyse & Verbesserung“ zustimmen, laden wir Google Analytics 4 der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland), die die Daten in unserem Auftrag verarbeitet. Vorher wird keine Verbindung zu Google aufgebaut. Google Analytics setzt Cookies und wertet Ihre Nutzung der Website aus. IP-Adressen speichert Google Analytics 4 nach Angaben von Google nicht. Daten können auch an Google LLC in den USA übermittelt werden. Google ist nach dem EU-US Data Privacy Framework zertifiziert. Ihre Einwilligung können Sie jederzeit über „Cookie-Einstellungen“ im Footer widerrufen.
             </p>
             <p className="mt-1">
               <strong>Rechtsgrundlage:</strong>{" "}
@@ -166,13 +166,23 @@ export default function Datenschutz() {
               Google-Bewertungen
             </h3>
             <p data-edit-id="datenschutz-google-reviews-text">
-              Zur Darstellung unserer Google-Bewertungen ruft unser Server die Bewertungen über die Google Places API ab. Auch die Profilbilder der Bewertenden lädt unser Server und liefert sie selbst aus. Ihr Browser stellt dabei keine Verbindung zu Google her, es werden keine Daten der Website-Besucher an Google übermittelt.
+              Zur Darstellung unserer Google-Bewertungen ruft unser Server die Bewertungen über die Google Places API ab. Auch die Profilbilder der Bewertenden lädt unser Server und liefert sie selbst aus. Ihr Browser stellt dabei keine Verbindung zu Google her. Es werden keine Daten der Website-Besucher an Google übermittelt.
+            </p>
+            <h3 data-edit-id="datenschutz-maps-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
+              Google Maps
+            </h3>
+            <p data-edit-id="datenschutz-maps-text">
+              Auf der Buchungsseite können Sie eine Karte von Google Maps (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) anzeigen lassen. Die Karte wird erst geladen, wenn Sie auf „Karte laden“ klicken. Dann überträgt Ihr Browser unter anderem Ihre IP-Adresse an Google. Daten können auch an Google LLC in den USA übermittelt werden. Google ist nach dem EU-US Data Privacy Framework zertifiziert.
+            </p>
+            <p className="mt-1">
+              <strong>Rechtsgrundlage:</strong>{" "}
+              <span data-edit-id="datenschutz-maps-basis">Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch Klick auf „Karte laden“).</span>
             </p>
             <h3 data-edit-id="datenschutz-stripe-title" className="text-lg font-semibold text-[#111] mt-6 mb-2">
               Stripe
             </h3>
             <p data-edit-id="datenschutz-stripe-text">
-              Online-Zahlungen für Gutscheine und Block-Karten wickeln wir über Stripe ab (Stripe Payments Europe, Limited, Dublin, Irland). Erst wenn Sie auf der Gutschein-Seite zum Bezahlschritt kommen, wird das Zahlungsformular von Stripe geladen. Stripe verarbeitet dann Ihre Zahlungsdaten, Name, E-Mail-Adresse, IP-Adresse und Geräteinformationen und setzt Cookies, die für die sichere Zahlung und zur Betrugsvorbeugung nötig sind. Für die Zahlungsabwicklung handelt Stripe in unserem Auftrag, für Betrugsvorbeugung und gesetzliche Pflichten (z. B. Geldwäscheprävention) als eigenständig Verantwortlicher. Stripe kann Daten auch an Stripe-Gesellschaften in den USA übermitteln, auf Basis des EU-US Data Privacy Framework und der EU-Standardvertragsklauseln. Details: stripe.com/at/privacy.
+              Online-Zahlungen für Gutscheine und Block-Karten wickeln wir über Stripe ab (Stripe Payments Europe, Limited, Dublin, Irland). Erst wenn Sie auf der Gutschein-Seite zum Bezahlschritt kommen, wird das Zahlungsformular von Stripe geladen. Stripe verarbeitet dann Ihre Zahlungsdaten, Name, E-Mail-Adresse, IP-Adresse und Geräteinformationen und setzt Cookies, die für die sichere Zahlung und zur Betrugsvorbeugung nötig sind. Für die Zahlungsabwicklung handelt Stripe in unserem Auftrag, für Betrugsvorbeugung und gesetzliche Pflichten (z. B. Geldwäscheprävention) als eigenständiger Verantwortlicher. Stripe kann Daten auch an Stripe-Gesellschaften in den USA übermitteln, auf Basis des EU-US Data Privacy Framework und der EU-Standardvertragsklauseln. Details: stripe.com/at/privacy.
             </p>
             <p className="mt-1">
               <strong>Rechtsgrundlage:</strong>{" "}
@@ -192,7 +202,7 @@ export default function Datenschutz() {
               Resend
             </h3>
             <p data-edit-id="datenschutz-resend-text">
-              Die Bestätigungs-E-Mail mit Ihrem Gutschein versenden wir über Resend (Plus Five Five, Inc., USA). Dafür werden Ihr Name, Ihre E-Mail-Adresse und der Inhalt der Bestätigung an Resend übermittelt und in den USA gespeichert. Resend ist nach dem EU-US Data Privacy Framework zertifiziert, ergänzend gelten die EU-Standardvertragsklauseln.
+              Die Bestätigungs-E-Mail mit Ihrem Gutschein versenden wir über Resend (Plus Five Five, Inc., USA). Über Resend erhalten auch wir eine interne Benachrichtigung über die Bestellung. Dafür werden Ihr Name, Ihre E-Mail-Adresse und der Inhalt der Bestellung an Resend übermittelt und in den USA gespeichert. Resend ist nach dem EU-US Data Privacy Framework zertifiziert, ergänzend gelten die EU-Standardvertragsklauseln.
             </p>
             <p className="mt-1">
               <strong>Rechtsgrundlage:</strong>{" "}
@@ -225,6 +235,7 @@ export default function Datenschutz() {
                 Buchhaltungsrelevante Daten: 7 Jahre gemäß österreichischem
                 Steuerrecht
               </li>
+              <li data-edit-id="datenschutz-speicher-gutscheine">Gutschein- und Bestelldaten: bis zur Einlösung bzw. zum Ablauf des Gutscheins, danach 7 Jahre gemäß österreichischem Steuerrecht</li>
               <li>Technische Log-Daten: maximal 30 Tage</li>
             </ul>
           </section>
