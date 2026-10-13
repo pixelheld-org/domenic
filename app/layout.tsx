@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { headers } from "next/headers";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/JsonLd";
@@ -33,17 +32,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const initialPathname = (await headers()).get("x-pathname") ?? "/";
   return (
     <html lang="de" className={`${geistSans.variable} h-full antialiased`}>
       <head>
         <JsonLd />
-        {/* Google Consent Mode v2 — must run before any GA tag loads */}
+        {/* Google Consent Mode v2 — setzt die Defaults. gtag.js selbst lädt erst nach
+            Zustimmung, siehe components/CookieConsent.tsx */}
         <Script id="google-consent-mode" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -74,27 +73,9 @@ export default async function RootLayout({
             });
           `}
         </Script>
-        {/* Google Analytics 4 — gtag.js (only loads when Measurement ID is set) */}
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <>
-            <Script
-              id="ga4-src"
-              strategy="afterInteractive"
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}', {
-                  anonymize_ip: true
-                });
-              `}
-            </Script>
-          </>
-        )}
       </head>
       <body className="min-h-full flex flex-col">
-        <Navbar initialPathname={initialPathname} />
+        <Navbar />
         {children}
         <SiteStickyCta
           phone="+43 670 189 52 56"

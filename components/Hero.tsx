@@ -68,16 +68,13 @@ export function Hero({
                   >
                     {a.name.charAt(0).toUpperCase()}
                     {a.photoUri && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
+                      // Über /_next/image ausgeliefert, nicht direkt von Google
+                      <Image
                         src={a.photoUri}
                         alt=""
-                        width={36}
-                        height={36}
-                        loading="lazy"
-                        decoding="async"
-                        className="absolute inset-0 h-full w-full object-cover"
-                        referrerPolicy="no-referrer"
+                        fill
+                        sizes="36px"
+                        className="object-cover"
                       />
                     )}
                   </div>

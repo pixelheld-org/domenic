@@ -10,7 +10,7 @@ export interface GoogleReview {
   authorAttribution: {
     displayName: string;
     uri: string;
-    photoUri: string;
+    photoUri?: string;
   };
 }
 
@@ -57,7 +57,13 @@ export async function GET() {
     const response: ReviewsResponse = {
       rating: data.rating ?? 0,
       userRatingCount: data.userRatingCount ?? 0,
-      reviews: data.reviews ?? [],
+      // Profilbild-URLs entfernen, damit kein Client sie direkt bei Google lädt
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      reviews: (data.reviews ?? []).map((r: any) => {
+        const author = { ...r.authorAttribution };
+        delete author.photoUri;
+        return { ...r, authorAttribution: author };
+      }),
     };
 
     return NextResponse.json(response, {

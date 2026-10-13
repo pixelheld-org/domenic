@@ -5,6 +5,9 @@ import { ArrowLeft } from "lucide-react";
 export const metadata: Metadata = {
   title: "Impressum | Heilmasseur Domenic Hacker",
   description: "Impressum und rechtliche Informationen von Heilmasseur Domenic Hacker, Wien 1080.",
+  alternates: {
+    canonical: "https://heilmasseur-domenic.at/impressum",
+  },
 };
 
 export default function Impressum() {
@@ -16,7 +19,7 @@ export default function Impressum() {
           className="inline-flex items-center gap-2 text-sm font-semibold text-[#0d4f4f] hover:underline mb-8"
         >
           <ArrowLeft size={16} />
-          Zurück zur Startseite
+          <span data-edit-id="impressum-back">Zurück zur Startseite</span>
         </Link>
 
         <h1 data-edit-id="impressum-title" className="text-4xl font-extrabold text-[#111] mb-8">
@@ -25,35 +28,39 @@ export default function Impressum() {
 
         <div className="prose prose-gray max-w-none space-y-6 text-[#333] leading-relaxed">
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-angaben-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Angaben gemäß § 5 ECG / § 25 MedienG
             </h2>
             <p>
-              <strong>Domenic Hacker</strong>
+              <strong data-edit-id="impressum-name">Domenic Hacker</strong>
               <br />
-              Diplomierter medizinischer Masseur und Heilmasseur
+              <span data-edit-id="impressum-angaben-beruf">Diplomierter medizinischer Masseur und Heilmasseur</span>
               <br />
-              Feldgasse 3/20
+              <span data-edit-id="impressum-strasse">Feldgasse 3/20</span>
               <br />
-              1080 Wien, Österreich
+              <span data-edit-id="impressum-ort">1080 Wien, Österreich</span>
+              <br />
+              <span data-edit-id="impressum-gegenstand">Unternehmensgegenstand: Heilmassage und Massage</span>
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-kontakt-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Kontakt
             </h2>
             <p>
-              Telefon:{" "}
+              <span data-edit-id="impressum-telefon-label">Telefon:</span>{" "}
               <a
+                data-edit-id="impressum-telefon"
                 href="tel:+436701895256"
                 className="text-[#0d4f4f] hover:underline"
               >
                 +43 670 189 52 56
               </a>
               <br />
-              E-Mail:{" "}
+              <span data-edit-id="impressum-email-label">E-Mail:</span>{" "}
               <a
+                data-edit-id="impressum-email"
                 href="mailto:praxis@heilmasseur-domenic.at"
                 className="text-[#0d4f4f] hover:underline"
               >
@@ -63,49 +70,52 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-beruf-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Berufsbezeichnung
             </h2>
             <p>
-              Diplomierter medizinischer Masseur und Heilmasseur
+              <span data-edit-id="impressum-beruf-text">Diplomierter medizinischer Masseur und Heilmasseur</span>
               <br />
-              Berufsbezeichnung verliehen in: Österreich
+              <span data-edit-id="impressum-beruf-land">Berufsbezeichnung verliehen in: Österreich</span>
+              <br />
+              <span data-edit-id="impressum-gewerbe">Gewerbe: Massage, ausgenommen ganzheitlich in sich geschlossene Systeme (GISA-Zahl 38211751)</span>
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-behoerde-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Zuständige Aufsichtsbehörde
             </h2>
             <p>
-              Bezirkshauptmannschaft / Magistrat Wien
+              <span data-edit-id="impressum-behoerde-text">Heilmasseur (freiberuflich): Magistrat der Stadt Wien</span>
               <br />
-              Gewerbebehörde: Magistratisches Bezirksamt für den 8. Bezirk
+              <span data-edit-id="impressum-gewerbebehoerde">Gewerbebehörde: Magistratisches Bezirksamt für den 1. und 8. Bezirk</span>
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-kammer-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Kammerzugehörigkeit
             </h2>
             <p>
-              Wirtschaftskammer Wien (WKO)
+              <span data-edit-id="impressum-kammer-text">Wirtschaftskammer Wien (WKO)</span>
               <br />
-              Fachgruppe der persönlichen Dienstleister
+              <span data-edit-id="impressum-kammer-fachgruppe">Landesinnung Wien der Fußpfleger, Kosmetiker und Masseure</span>
             </p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-recht-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Anwendbare Rechtsvorschriften
             </h2>
             <p>
-              Medizinischer Masseur- und Heilmasseurgesetz (MMHmG)
+              <span data-edit-id="impressum-recht-mmhmg">Medizinischer Masseur- und Heilmasseurgesetz (MMHmG)</span>
               <br />
-              Gewerbeordnung (GewO)
+              <span data-edit-id="impressum-recht-gewo">Gewerbeordnung (GewO)</span>
               <br />
-              Zugänglich unter:{" "}
+              <span data-edit-id="impressum-recht-link-label">Zugänglich unter:</span>{" "}
               <a
+                data-edit-id="impressum-recht-link"
                 href="https://www.ris.bka.gv.at"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -117,28 +127,10 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
-              Streitschlichtung
-            </h2>
-            <p>
-              Die Europäische Kommission stellt eine Plattform zur
-              Online-Streitbeilegung (OS) bereit:{" "}
-              <a
-                href="https://ec.europa.eu/consumers/odr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#0d4f4f] hover:underline"
-              >
-                ec.europa.eu/consumers/odr/
-              </a>
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-[#111] mt-8 mb-3">
+            <h2 data-edit-id="impressum-haftung-title" className="text-xl font-bold text-[#111] mt-8 mb-3">
               Haftungsausschluss
             </h2>
-            <p>
+            <p data-edit-id="impressum-haftung-text">
               Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt.
               Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte
               kann jedoch keine Gewähr übernommen werden.

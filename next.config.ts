@@ -13,13 +13,28 @@ const nextConfig: NextConfig = {
   },
   images: {
     qualities: [75, 85],
+    // Profilbilder der Google-Bewertungen. Sie laufen über den Image-Optimizer
+    // (/_next/image), damit der Browser keine Verbindung zu Google aufbaut.
+    remotePatterns: [new URL("https://lh3.googleusercontent.com/**")],
   },
   async headers() {
-    if (isProductionDeploy) return [];
+    // Gelten überall. Kein X-Frame-Options/frame-ancestors, weil das
+    // Pixelheld-Portal die Seite im iframe zeigt. "payment" bleibt erlaubt,
+    // Stripe braucht es für Apple Pay und Google Pay. HSTS setzt Vercel selbst.
+    const securityHeaders = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      {
+        key: "Permissions-Policy",
+        value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+      },
+    ];
     return [
       {
         source: "/:path*",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+        headers: isProductionDeploy
+          ? securityHeaders
+          : [...securityHeaders, { key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
     ];
   },

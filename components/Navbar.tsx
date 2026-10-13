@@ -19,25 +19,22 @@ const DARK_HERO_PATHS = new Set<string>([
   "/buchen",
 ]);
 
-export function Navbar({ initialPathname = "" }: { initialPathname?: string }) {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  // usePathname() is null during static prerender when a proxy file is present,
-  // so we accept the server-resolved pathname as a stable fallback. Once React
-  // hydrates and the router context is ready, the hook returns the live value.
-  const hookPathname = usePathname();
-  const pathname = hookPathname || initialPathname;
+  // Beim statischen Prerender liefert usePathname() den Pfad der Route, der
+  // Proxy schreibt keine URLs um. Ein Pfad aus headers() im Layout würde jede
+  // Seite dynamisch machen.
+  const pathname = usePathname() ?? "/";
   const isBookingPage = pathname === "/buchen";
   const hasDarkHero = DARK_HERO_PATHS.has(pathname);
   // Text/icon color: dark by default (white-hero pages), white only on dark-hero
   // pages while at the top. Once scrolled, always dark (solid white bg below).
   const useDarkText = scrolled || !hasDarkHero;
-
-  if (pathname.startsWith("/studio")) return null;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -123,6 +120,9 @@ export function Navbar({ initialPathname = "" }: { initialPathname?: string }) {
 
   const getMobileLinkClass = (active: boolean) =>
     active ? "text-[#0d4f4f]" : "text-[#111] hover:text-[#0d4f4f]";
+
+  // Erst nach allen Hooks, sonst ändert sich deren Reihenfolge.
+  if (pathname.startsWith("/studio")) return null;
 
   return (
     <>

@@ -1,5 +1,7 @@
 # PLAN — heilmasseur-domenic.at
 
+> **Veraltet (Stand vor September 2026).** Dieser Plan stammt aus der Zeit, als Sanity das CMS war. Inhalte werden inzwischen über das Pixelheld-Portal gepflegt, Sanity ist nur noch die Gutschein-Datenbank. Aktueller Stand: [README.md](README.md) und [AGENTS.md](AGENTS.md).
+
 ## Ist-Stand
 
 ### Seiten (App Router)
