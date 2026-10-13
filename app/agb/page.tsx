@@ -29,18 +29,8 @@ export default function Agb() {
         <p data-edit-id="agb-subtitle" className="text-lg font-semibold text-[#555] mb-4">
           Allgemeine Geschäftsbedingungen
         </p>
-        <p className="text-sm text-[#555] mb-10 leading-relaxed">
-          <span data-edit-id="agb-hinweis-vor">Formuliert von</span>{" "}
-          <a
-            data-edit-id="agb-hinweis-link"
-            href="https://pixelmeister.at"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#0d4f4f] hover:underline"
-          >
-            Pixelmeister
-          </a>{" "}
-          <span data-edit-id="agb-hinweis-nach">für Domenic Hacker zur Bestätigung. Stand: 25.08.2026.</span>
+        <p data-edit-id="agb-stand" className="text-sm text-[#555] mb-10 leading-relaxed">
+          Stand: 25.08.2026.
         </p>
 
         <div className="prose prose-gray max-w-none space-y-6 text-[#333] leading-relaxed">
