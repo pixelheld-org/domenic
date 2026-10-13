@@ -19,7 +19,7 @@ export default function Impressum() {
           className="inline-flex items-center gap-2 text-sm font-semibold text-[#0d4f4f] hover:underline mb-8"
         >
           <ArrowLeft size={16} />
-          Zurück zur Startseite
+          <span data-edit-id="impressum-back">Zurück zur Startseite</span>
         </Link>
 
         <h1 data-edit-id="impressum-title" className="text-4xl font-extrabold text-[#111] mb-8">
@@ -49,16 +49,18 @@ export default function Impressum() {
               Kontakt
             </h2>
             <p>
-              Telefon:{" "}
+              <span data-edit-id="impressum-telefon-label">Telefon:</span>{" "}
               <a
+                data-edit-id="impressum-telefon"
                 href="tel:+436701895256"
                 className="text-[#0d4f4f] hover:underline"
               >
                 +43 670 189 52 56
               </a>
               <br />
-              E-Mail:{" "}
+              <span data-edit-id="impressum-email-label">E-Mail:</span>{" "}
               <a
+                data-edit-id="impressum-email"
                 href="mailto:praxis@heilmasseur-domenic.at"
                 className="text-[#0d4f4f] hover:underline"
               >
@@ -111,8 +113,9 @@ export default function Impressum() {
               <br />
               <span data-edit-id="impressum-recht-gewo">Gewerbeordnung (GewO)</span>
               <br />
-              Zugänglich unter:{" "}
+              <span data-edit-id="impressum-recht-link-label">Zugänglich unter:</span>{" "}
               <a
+                data-edit-id="impressum-recht-link"
                 href="https://www.ris.bka.gv.at"
                 target="_blank"
                 rel="noopener noreferrer"
