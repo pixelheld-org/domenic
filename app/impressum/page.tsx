@@ -81,7 +81,7 @@ export default function Impressum() {
               Zuständige Aufsichtsbehörde
             </h2>
             <p>
-              <span data-edit-id="impressum-behoerde-text">Bezirkshauptmannschaft / Magistrat Wien</span>
+              <span data-edit-id="impressum-behoerde-text">Heilmasseur (freiberuflich): Magistrat der Stadt Wien</span>
               <br />
               <span data-edit-id="impressum-gewerbebehoerde">Gewerbebehörde: Magistratisches Bezirksamt für den 8. Bezirk</span>
             </p>
