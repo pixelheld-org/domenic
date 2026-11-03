@@ -54,12 +54,12 @@ export default async function Home() {
         <section className="py-20 sm:py-24 bg-white">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <div className="flex flex-col sm:flex-row items-center gap-10 sm:gap-14">
-              <div className="relative shrink-0 w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-[#0d4f4f]/10 shadow-xl">
+              <div className="relative shrink-0 w-56 h-56 sm:w-68 sm:h-68 rounded-full overflow-hidden border-4 border-[#0d4f4f]/10 shadow-xl">
                 <Image
                   src="/images/cms/home-about-teaser.webp"
                   alt="Domenic Hacker – Diplomierter Heilmasseur Wien"
                   fill
-                  sizes="(max-width: 640px) 176px, 208px"
+                  sizes="(max-width: 640px) 224px, 272px"
                   className="object-cover object-[75%_20%]"
                 />
               </div>
