@@ -56,11 +56,11 @@ export default async function Home() {
             <div className="flex flex-col sm:flex-row items-center gap-10 sm:gap-14">
               <div className="relative shrink-0 w-56 h-56 sm:w-68 sm:h-68 rounded-full overflow-hidden border-4 border-[#0d4f4f]/10 shadow-xl">
                 <Image
-                  src="/images/cms/home-about-teaser.webp"
+                  src="/images/0-Internationale_Massage-Meisterschaft_in_der_Slowakei.png"
                   alt="Domenic Hacker – Diplomierter Heilmasseur Wien"
                   fill
                   sizes="(max-width: 640px) 224px, 272px"
-                  className="object-cover object-[75%_20%]"
+                  className="object-cover object-[42%_30%]"
                 />
               </div>
               <div>
