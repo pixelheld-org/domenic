@@ -95,7 +95,7 @@ export default async function Home() {
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/10">
                 <Image
-                  src="/images/behandlungsraum_1080.png"
+                  src="/images/behandlungsraum_1080.jpg"
                   alt="Behandlungsraum der Heilmassage-Praxis in Wien 1080 – helle Altbauräume mit professioneller Massageliege"
                   width={800}
                   height={534}
