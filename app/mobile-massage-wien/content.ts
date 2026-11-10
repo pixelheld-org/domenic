@@ -16,7 +16,7 @@ export const IMAGES = {
   /** Breakdance-Bühnenfoto 3000×2000, Tänzer mittig (object-position ≈ 50% 55%) */
   stage: "/images/breakdance.jpg",
   /** Behandlung / Hero */
-  treatment: "/images/mobile-massage-hero.jpeg",
+  treatment: "/images/0-Domenic-Praxis-16.jpg",
   /** Praxis-Behandlung mit Pflanze, 2000×1333 */
   treatmentWide: "/images/domenic-1080.webp",
 } as const;
