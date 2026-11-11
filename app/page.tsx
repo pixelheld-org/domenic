@@ -76,9 +76,7 @@ export default async function Home() {
                     und Feingefühl
                   </span>
                 </h2>
-                <p data-edit-id="home-about-teaser" className="mt-3 text-base text-[#555] leading-relaxed max-w-xl">
-                  Ich verbinde fundiertes Fachwissen mit einem feinen Gespür für den Körper. Bewegung prägt mein Leben — sowohl in der Therapie als auch im Breakdance, der meine Körperwahrnehmung nachhaltig geschult hat.
-                </p>
+                <p data-edit-id="home-about-teaser" className="mt-3 text-base text-[#555] leading-relaxed max-w-xl">{"Meine mehrjährige Erfahrung als medizinischer Masseur im Rehabilitationsbereich verbinde ich mit fundierten Fachwissen und einem feinen Gespür für den Körper."}</p>
                 <Link
                   href="/ueber-mich"
                   className="mt-5 inline-flex items-center gap-2 rounded-full border-2 border-[#0d4f4f] px-6 py-2.5 text-sm font-bold text-[#0d4f4f] hover:bg-[#0d4f4f] hover:text-white transition-all duration-200"
